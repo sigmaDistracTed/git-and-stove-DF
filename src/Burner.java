@@ -132,7 +132,7 @@ public class Burner {
 	}
 	
 	public void updateTemperature() {
-		if (this.timer ==0) {
+		if (this.timer == 1 || this.timer == 0) {
 			handleTemperature();
 		
 		}
