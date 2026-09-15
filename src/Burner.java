@@ -1,10 +1,14 @@
 
 public class Burner {
 	public enum Temperature {
-		COLD (0), WARM (1), HOT(2), BLAZING(3);
-		private final int value;
-		private Temperature(int aValue) {
+		COLD ("coool"), WARM ("warm"), HOT("CAREFUL"), BLAZING("VERY HOT! DONT TOUCH!");
+		private final String value;
+		private Temperature(String aValue) {
 			value = aValue; 
+		}
+		@Override
+		public String toString() {
+			return this.value;
 		}
 	}
 	
@@ -77,6 +81,7 @@ public class Burner {
 				break;
 			
 			}
+			break;
 		case LOW:
 			switch(this.myTemperature) {
 			case COLD:
@@ -91,6 +96,7 @@ public class Burner {
 				this.myTemperature = Temperature.HOT;
 				break;
 			}
+			break;
 		case MEDIUM:
 			switch(this.myTemperature) {
 			case COLD:
@@ -105,6 +111,7 @@ public class Burner {
 				this.myTemperature = Temperature.HOT;
 				break;
 			}
+			break;
 		case HIGH: 
 			switch(this.myTemperature) {
 			case COLD:
@@ -132,7 +139,10 @@ public class Burner {
 		else {
 			this.timer--;
 		}
-		
+	}
+	
+	public void display() {
+		System.out.println(this.mySetting + "...." + this.myTemperature);
 	}
 }
 
